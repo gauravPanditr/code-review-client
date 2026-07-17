@@ -55,9 +55,7 @@ export default function Sidebar() {
               @{user?.name}
             </h3>
 
-            <p className="text-xs text-gray-400 truncate">
-              {user?.email}
-            </p>
+           
           </div>
 
         </div>
