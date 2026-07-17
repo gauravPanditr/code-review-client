@@ -1,6 +1,7 @@
 import axios from "axios";
 
 
+const BASE_URL = "http://localhost:5000/api";
 export const getDashboard = async () => {
   const { data } = await axios.get(
     "http://localhost:5000/api/dashboard",
@@ -22,5 +23,25 @@ export const getMonthlyActivity = async () => {
   const { data } = await axios.get("http://localhost:5000/api/activity/monthly", {
     withCredentials: true,
   });
+  return data;
+};
+
+export const getRepositories = async (
+  pageNumber = 1,
+  perPage = 10
+) => {
+  const { data } = await axios.get(
+    "http://localhost:5000/api/repository",
+    {
+      params: {
+        pageNumber,
+        perPage,
+      },
+      withCredentials: true,
+    }
+  );
+
+  console.log(data);
+
   return data;
 };

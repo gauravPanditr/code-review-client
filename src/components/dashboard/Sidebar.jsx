@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useSession, authClient ,signOut} from "../../lib/auth-client";
+import { Link } from "react-router-dom";
 
 const menu = [
-  "Dashboard",
-  "Repository",
-  "Reviews",
-  "Subscription",
-  "Settings",
+  { name: "Dashboard", path: "/dashboard" },
+  { name: "Repository", path: "/repository" },
+  { name: "Reviews", path: "/reviews" },
+  { name: "Subscription", path: "/subscription" },
+  { name: "Settings", path: "/settings" },
 ];
 
 export default function Sidebar() {
@@ -34,8 +35,7 @@ export default function Sidebar() {
   }
 
   return (
-    <aside className="relative w-72 min-h-screen bg-[#111] text-white p-5 border-r border-gray-800">
-
+    <aside className="fixed left-0 top-0 w-72 h-screen bg-[#111] text-white p-5 border-r border-gray-800 flex flex-col">
       {/* Connected Account */}
       <div className="bg-[#1b1b1b] rounded-lg p-4 mb-10">
         <div className="flex gap-3 items-center">
@@ -67,20 +67,16 @@ export default function Sidebar() {
       </p>
 
       <div className="space-y-2">
-        {menu.map((item, index) => (
-          <div
-            key={item}
-            className={`p-3 rounded-lg cursor-pointer transition ${
-              index === 0
-                ? "bg-[#292929]"
-                : "hover:bg-[#222]"
-            }`}
-          >
-            {item}
-          </div>
-        ))}
-      </div>
-
+  {menu.map((item) => (
+    <Link
+      key={item.name}
+      to={item.path}
+      className="block p-3 rounded-lg hover:bg-[#222]"
+    >
+      {item.name}
+    </Link>
+  ))}
+</div>
       {/* Bottom Profile */}
       <div className="absolute bottom-5 left-5 right-5">
 

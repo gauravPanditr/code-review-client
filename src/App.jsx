@@ -3,6 +3,7 @@ import { useSession } from "./lib/auth-client";
 
 import Login from "./pages/Login";
 import DashBoardPage from "./pages/DashBoardPage";
+import RepositaryPage from "./pages/RepositaryPage";
 
 function App() {
   const { data: session, isPending } = useSession();
@@ -19,7 +20,7 @@ function App() {
           session ? <Navigate to="/dashboard" /> : <Login />
         }
       />
-
+  <Route path="/repository" element={<RepositaryPage />} />
       <Route
         path="/dashboard"
         element={
