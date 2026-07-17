@@ -3,6 +3,7 @@ import { getDashboard } from "../../api/dashboard";
 
 import StatCard from "./StatCard";
 import ContributionGraph from "./ContributionGraph";
+import ActivityOverview from "./ActivityOverview";
 
 export default function DashBoard() {
   const { data, isLoading, error } = useQuery({
@@ -70,6 +71,9 @@ export default function DashBoard() {
 
       <div className="mt-8">
         <ContributionGraph />
+      </div>
+      <div className="mt-8">
+        <ActivityOverview />
       </div>
     </main>
   );
