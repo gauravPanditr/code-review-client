@@ -45,3 +45,22 @@ export const getRepositories = async (
 
   return data;
 };
+export const connectRepository = async ({
+  owner,
+  repo,
+  githubId,
+}) => {
+  const { data } = await axios.post(
+    "http://localhost:5000/api/connectrespo",
+    {
+      owner,
+      repo,
+      githubId,
+    },
+    {
+      withCredentials: true,
+    }
+  );
+
+  return data;
+};
