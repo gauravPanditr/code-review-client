@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast"; // or your toast library of choice
-import { connectRepository } from "../api/dashboard"; // adjust path
+import { connectRepository } from "../api/repositories"; // adjust path
 
 export const useConnectRepository = () => {
   const queryClient = useQueryClient();

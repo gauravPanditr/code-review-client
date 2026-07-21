@@ -4,6 +4,7 @@ import { useSession } from "./lib/auth-client";
 import Login from "./pages/Login";
 import DashBoardPage from "./pages/DashBoardPage";
 import RepositaryPage from "./pages/RepositaryPage";
+import SettingPage from "./pages/SettingPage";
 
 function App() {
   const { data: session, isPending } = useSession();
@@ -28,6 +29,12 @@ function App() {
         }
       />
 
+             <Route
+        path="/settings"
+        element={
+          session ? <SettingPage /> : <Navigate to="/login" />
+        }
+      />
       <Route
         path="/"
         element={

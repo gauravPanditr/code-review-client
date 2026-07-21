@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { getRepositories } from "../../api/dashboard";
+import { getRepositories } from "../../api/repositories";
 import { useConnectRepository } from "../../hooks/useConnectRepository";
 
 const Repositary = () => {
@@ -12,10 +12,11 @@ const Repositary = () => {
   const { data, isLoading } = useQuery({
     queryKey: ["repositories", 1, 10],
     queryFn: () => getRepositories(1, 10),
+    
   });
 
   const handleConnect = (repo) => {
-      console.log("CLICKED REPO:", repo);
+      
 
     setConnectingRepo(repo.id);
 
