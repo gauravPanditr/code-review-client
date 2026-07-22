@@ -10,6 +10,7 @@ import {
   getConnectedRepository,
 } from "../../api/repositories";
 import { Trash2 } from "lucide-react";
+import { useDeleteAllConnectedRepo } from "../../hooks/deleteAllRepository";
 
 const ConnectedRepositories = () => {
 const [disconnectingRepo, setDisconnectingRepo] = useState(null);
@@ -19,6 +20,7 @@ const [disconnectingRepo, setDisconnectingRepo] = useState(null);
     queryKey: ["connected-repositories"],
     queryFn: getConnectedRepository,
   });
+  
 
   const { mutate, isPending } = useMutation({
     mutationFn: deleteConnectedRepository,
@@ -38,15 +40,16 @@ const [disconnectingRepo, setDisconnectingRepo] = useState(null);
     }
   });
 
-  if (isLoading) {
-    return (
-      <div className="bg-[#111] rounded-xl p-6">
-        Loading repositories...
-      </div>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div className="bg-[#111] rounded-xl p-6">
+  //       Loading repositories...
+  //     </div>
+  //   );
+  // }
 
   return (
+    
     <div className="bg-[#111] border border-zinc-800 rounded-xl p-6 ">
       <h2 className="text-2xl font-semibold mb-2">
         Connected Repositories
@@ -55,7 +58,7 @@ const [disconnectingRepo, setDisconnectingRepo] = useState(null);
       <p className="text-gray-400 mb-6">
         Manage your connected GitHub repositories
       </p>
-       <button className="flex items-center  gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition"
+       <button  className="flex items-center  gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition"
   >
     <Trash2 size={16} />
     Disconnect All

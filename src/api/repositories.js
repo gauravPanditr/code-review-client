@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export const getRepositories = async (
-  pageNumber = 1,
-  perPage = 10
+  pageNumber=1 ,
+  perPage=10 
 ) => {
   const { data } = await axios.get(
     "http://localhost:5000/api/repositories",
@@ -15,7 +15,7 @@ export const getRepositories = async (
     }
   );
 
-  console.log(data);
+  
 
   return data;
 };

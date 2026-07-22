@@ -9,6 +9,8 @@ export const getDashboard = async () => {
       withCredentials: true,
     }
   );
+  
+  
 
   return data;
 };
@@ -17,6 +19,8 @@ export const getContribution=async()=>{
     const {data}=await axios.get( "http://localhost:5000/api/dashboard/contribution",{
         withCredentials:true,
     });
+    console.log(data);
+    
     return data;
 };
 export const getMonthlyActivity = async () => {
