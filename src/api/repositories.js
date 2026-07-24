@@ -1,31 +1,33 @@
 import axios from "axios";
 
+const BASE_URL = import.meta.env.VITE_API_URL;
+
+
 export const getRepositories = async (
-  pageNumber=1 ,
-  perPage=10 
+  page = 1,
+  perPage = 10
 ) => {
   const { data } = await axios.get(
-    "http://localhost:5000/api/repositories",
+    `${BASE_URL}/repositories`,
     {
       params: {
-        pageNumber,
+        page,
         perPage,
       },
       withCredentials: true,
     }
   );
 
-  
-
   return data;
 };
+
 export const connectRepository = async ({
   owner,
   repo,
   githubId,
 }) => {
   const { data } = await axios.post(
-    "http://localhost:5000/api/repositories/connect",
+    `${BASE_URL}/repositories/connect`,
     {
       owner,
       repo,
@@ -38,21 +40,23 @@ export const connectRepository = async ({
 
   return data;
 };
-export const getConnectedRepository=async()=>{
-    const {data}=await axios.get("http://localhost:5000/api/repositories/connected",{
-        withCredentials:true,
-    });
-   
-    
-    return data;
 
-}
+export const getConnectedRepository = async () => {
+  const { data } = await axios.get(
+    `${BASE_URL}/repositories/connected`,
+    {
+      withCredentials: true,
+    }
+  );
+
+  return data;
+};
 
 export const deleteConnectedRepository = async (
   repositoryId
 ) => {
   const { data } = await axios.delete(
-    "http://localhost:5000/api/repositories/disconnect",
+    `${BASE_URL}/repositories/disconnect`,
     {
       data: {
         repositoryId,
@@ -63,10 +67,14 @@ export const deleteConnectedRepository = async (
 
   return data;
 };
-export const deleteAllConnectedRepository=async()=>{
-    const {data}=await await axios.delete(
-    "http://localhost:5000/api/repositories/disconnect=all",{
-        withCredentials:true,
-    });
-    return data;
-}
+
+export const deleteAllConnectedRepository = async () => {
+  const { data } = await axios.delete(
+    `${BASE_URL}/repositories/disconnect-all`,
+    {
+      withCredentials: true,
+    }
+  );
+
+  return data;
+};

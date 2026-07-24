@@ -1,32 +1,34 @@
 import axios from "axios";
 
+const BASE_URL = import.meta.env.VITE_API_URL;
 
-const BASE_URL = "http://localhost:5000/api";
+
 export const getDashboard = async () => {
+  const { data } = await axios.get(`${BASE_URL}/dashboard`, {
+    withCredentials: true,
+  });
+
+  return data;
+};
+
+export const getContribution = async () => {
   const { data } = await axios.get(
-    "http://localhost:5000/api/dashboard",
+    `${BASE_URL}/dashboard/contribution`,
     {
       withCredentials: true,
     }
   );
-  
-  
 
   return data;
 };
 
-export const getContribution=async()=>{
-    const {data}=await axios.get( "http://localhost:5000/api/dashboard/contribution",{
-        withCredentials:true,
-    });
-    console.log(data);
-    
-    return data;
-};
 export const getMonthlyActivity = async () => {
-  const { data } = await axios.get("http://localhost:5000/api/dashboard/activity", {
-    withCredentials: true,
-  });
+  const { data } = await axios.get(
+    `${BASE_URL}/dashboard/activity`,
+    {
+      withCredentials: true,
+    }
+  );
+
   return data;
 };
-
