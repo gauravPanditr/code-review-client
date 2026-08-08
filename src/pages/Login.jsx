@@ -10,7 +10,7 @@ console.log(window.location.origin);
     try {
       await signIn.social({
         provider: "github",
-         callbackURL: "/dashboard",
+         callbackURL: `${import.meta.env.VITE_APP_URL}/dashboard`,
       });
     } catch (error) {
       console.error("Login Error:", error);
