@@ -8,7 +8,7 @@ import SettingPage from "./pages/SettingPage";
 
 function App() {
   const { data: session, isPending } = useSession();
-
+console.log("session =", session);
   if (isPending) {
     return <div>Loading...</div>;
   }

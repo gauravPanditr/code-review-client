@@ -3,7 +3,7 @@ import { signIn } from "../lib/auth-client";
 
 const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
-console.log(window.location.origin);
+
   const handleGithubLogin = async () => {
     setIsLoading(true);
 
