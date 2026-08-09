@@ -12,7 +12,7 @@ const Review = () => {
   if (isLoading) {
     return (
       <div className="p-6 text-white">
-        Loading reviews...
+        Loading reviews....
       </div>
     );
   }
