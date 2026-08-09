@@ -1,7 +1,8 @@
 import React from "react";
 import { ExternalLink } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
-import { getReviews } from "../api/review";
+import { getReviews } from "../../api/review";
+
 
 const Review = () => {
   const { data, isLoading, isError } = useQuery({
@@ -12,7 +13,7 @@ const Review = () => {
   if (isLoading) {
     return (
       <div className="p-6 text-white">
-        Loading reviews....
+        Loading review...
       </div>
     );
   }
