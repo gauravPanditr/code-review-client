@@ -10,7 +10,7 @@ console.log(window.location.origin);
     try {
       await signIn.social({
         provider: "github",
-         callbackURL: `https://code-review-client-tau.vercel.app/dashboard`,
+        callbackURL: `${window.location.origin}/dashboard`,
       });
     } catch (error) {
       console.error("Login Error:", error);
