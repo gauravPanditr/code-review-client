@@ -6,6 +6,7 @@ import DashBoardPage from "./pages/DashBoardPage";
 import RepositaryPage from "./pages/RepositaryPage";
 import SettingPage from "./pages/SettingPage";
 import ReviewPage from "./pages/ReviewPage";
+import Home from "./pages/Home";
 
 function App() {
   const { data: session, isPending } = useSession();
@@ -16,6 +17,7 @@ function App() {
 
   return (
     <Routes>
+      <Route path="/" element={<Home />} />
       <Route
         path="/login"
         element={
